@@ -1,0 +1,31 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "real time chat application",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start" : "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sam21sop/Chat-App.git"
+  },
+  "keywords": [
+    "chat",
+    "realtime"
+  ],
+  "author": "sopan bhere",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sam21sop/Chat-App/issues"
+  },
+  "homepage": "https://github.com/Sam21sop/Chat-App#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.2",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.3",
+    "socket.io": "^4.7.4"
+  }
+}
