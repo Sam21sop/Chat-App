@@ -4,9 +4,9 @@ import cors from 'cors';
 import http from 'http';
 
 
+// create server 
 const app = express();
 
-// create server using http
 const server = http.createServer(app);
 
 // create a socket server
@@ -17,33 +17,29 @@ const io = new Server(server, {
     }
 });
 
-// use socket event
-io.on('connection', (socket) => {
-    console.log("connection established.");
+app.use(express.static('./public'));
 
-    
-    // getting user data
-    socket.on("join", (data) => {
-        socket.username = data;
+
+io.on('connection', (socket)=>{
+    // when new user joined chatroom
+    socket.on('newuser', (username)=>{
+        socket.broadcast.emit('update', `${username} joined the conversation`);
     });
 
-
-    // new message event listner
-    socket.on("new_message", (message)=>{
-        // create object
-        let userMessage = {
-            username : socket.username,
-            message : message
-        } 
-
-        // broadcast the message to all the client 
-        socket.broadcast.emit("broadcast_message", userMessage);
+    // when existing user left chatroom
+    socket.on('existuser', (username)=>{
+        socket.broadcast.emit('update', `${username} left the conversation`);
     });
 
-
-    socket.on('disconnect', ()=>{
-        console.log("disconnected.");
+    // broadcast the message
+    socket.on('chat', (message)=>{
+        socket.broadcast.emit('chat', message);
     });
+});
+
+
+app.get('/', (req, res) => {
+    res.sendFile('index.html')
 });
 
 
