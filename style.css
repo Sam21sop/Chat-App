@@ -6,17 +6,40 @@
 
 body{
     font-family: sans-serif, "Roboto";
-    height: 100vh;
-    display: flex;
+}
+
+.container {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      padding: 1%;
+      justify-content: space-between;
+      position: fixed;
+}
+
+.user-count {
+    width: 20%; 
+    height: 200px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    margin-right: 20%;
+    display: block;
+}
+
+.connected-user{
+    text-align: center;
+    border: #0fe921 solid 1px;
     justify-content: center;
+    border-radius: 5%;
 }
 
 .app{
-    position: fixed;
-    width: 100%;
+    position: flex;
+    width: 50%; 
     height: 100%;
+    margin-left: 20%;
     max-width: 600px;
-    background: #fff;
+    background: #e7f0cf;
     border-left: 1px solid #eee;
     border-right: 1px solid #eee;
 }
@@ -34,7 +57,7 @@ body{
 .screen .form {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 40%;
     transform: translate(-50%, -50%);
     width: 80%;
     max-width: 400px;
@@ -43,10 +66,11 @@ body{
 .screen .form-input{
     width: 100%;
     margin: 20px 0px;
+    display: inline;
 }
 
 .screen h2 {
-    margin-bottom: 20px;
+    margin-top: 50px;
     font-size: 30px;
     color: #111;
     border-bottom: 4px solid #555;
@@ -54,15 +78,11 @@ body{
     display: inline-block;
 }
 
-.screen .form-input label{
-    display: block;
-    margin-bottom: 5px;
-}
-
 .screen .form-input input{
-    width: 100px;
+    width: 200px;
     padding: 10px;
     border: 1px solid #555;
+    border-radius: 5%;
     font-size: 16px;
 }
 
@@ -75,13 +95,11 @@ body{
     outline: auto;
     border: 1px;
     border-radius: 10%;
-    align-items: center;
+    display: inline;
 }
 
-
-/* chat screen  */
 .chat-screen .header{
-    background: #111;
+    background: #1e4c6b;
     height: 50px;
     display: flex;
     justify-content: space-between;
@@ -108,7 +126,7 @@ body{
 .chat-screen .messages{
     width: 100%;
     height: calc(100% - 100px);
-    background: #f5f5f5;
+    background: #b9d1cd;
     overflow: auto;
 }
 
@@ -158,15 +176,18 @@ body{
     flex: 1;
     height: 45px;
     font-size: 18px;
+    border-radius: 5px;
+    padding-left: 10px;
 }
 
 .chat-screen .typebox button{
     width: 80px;
     height: 100%;
-    background: #111;
+    background: #a1068d;
     color: #eee;
     font-size: 16px;
     outline: none;
     border: none;
     cursor: pointer;
-}
+    border-radius: 5px;
+} 
